@@ -43,16 +43,16 @@ export default {
     flex: 0 0 100%;
     transition: all 0.5s;
   }
+}
 
+.slide {
   &__image {
     width: 100%;
     height: 100%;
     max-width: 100%;
     object-fit: cover;
   }
-}
 
-.slide {
   &__content {
     position: absolute;
     bottom: 60px;

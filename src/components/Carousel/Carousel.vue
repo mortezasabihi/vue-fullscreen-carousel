@@ -1,6 +1,10 @@
 <template>
   <div class="carousel">
-    <carousel-slide v-for="(slide, index) in slides" :key="index" :slide="slide" />
+    <carousel-slide
+      v-for="(slide, index) in slides"
+      :key="index"
+      :slide="slide"
+    />
   </div>
 </template>
 
@@ -10,7 +14,7 @@ import CarouselSlide from "@/components/Carousel/CarouselSlide";
 export default {
   name: "Carousel",
   components: {
-    CarouselSlide
+    CarouselSlide,
   },
   props: {
     /**
@@ -19,7 +23,7 @@ export default {
      */
     slides: {
       required: true,
-      type: Array
+      type: Array,
     },
     /**
      * Delay
@@ -28,14 +32,14 @@ export default {
     delay: {
       required: false,
       type: Number,
-      default: () => 3000
-    }
+      default: () => 3000,
+    },
   },
   data() {
     return {
       current: 0,
       interval: null,
-      timer: null
+      timer: null,
     };
   },
   watch: {
@@ -43,7 +47,7 @@ export default {
       if (value === this.slides.length - 1) {
         this.timer = setTimeout(() => (this.current = 0), this.delay);
       }
-    }
+    },
   },
   methods: {
     /**
@@ -55,7 +59,7 @@ export default {
       this.interval = setInterval(() => {
         if (this.current < this.slides.length - 1) this.current += 1;
       }, this.delay);
-    }
+    },
   },
   created() {
     this.changeSlide();
@@ -63,7 +67,7 @@ export default {
   beforeDestroy() {
     clearInterval(this.interval);
     clearTimeout(this.timer);
-  }
+  },
 };
 </script>
 
