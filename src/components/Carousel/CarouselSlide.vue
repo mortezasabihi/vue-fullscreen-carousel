@@ -18,8 +18,8 @@ export default {
      */
     slide: {
       required: true,
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
     /**
@@ -29,45 +29,49 @@ export default {
      */
     transform() {
       return {
-        transform: `translateX(${this.$parent.current * -100}%)`
+        transform: `translateX(${this.$parent.current * -100}%)`,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style scoped>
-.carousel__slide {
-  position: relative;
-  flex: 0 0 100%;
-  transition: all 0.5s;
+<style lang="scss" scoped>
+.carousel {
+  &__slide {
+    position: relative;
+    flex: 0 0 100%;
+    transition: all 0.5s;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
 }
 
-.slide__image {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  object-fit: cover;
-}
+.slide {
+  &__content {
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    right: 60px;
+    padding: 25px 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
 
-.slide__content {
-  position: absolute;
-  bottom: 60px;
-  left: 60px;
-  right: 60px;
-  padding: 25px 40px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-}
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
 
-.slide__title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.slide__description {
-  line-height: 24px;
-  font-size: 17px;
+  &__description {
+    line-height: 24px;
+    font-size: 17px;
+  }
 }
 </style>
